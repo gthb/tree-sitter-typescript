@@ -562,6 +562,8 @@ export type * from './module';
 export type * as Name from './module';
 export type * as default from './module';
 export type * as "string-name" from './module';
+export { type x };
+export { type x as y };
 
 ---
 
@@ -605,7 +607,16 @@ export type * as "string-name" from './module';
       (string
         (string_fragment)))
     (string
-      (string_fragment))))
+      (string_fragment)))
+  (export_statement
+    (export_clause
+      (export_specifier
+        (identifier))))
+  (export_statement
+    (export_clause
+      (export_specifier
+        (identifier)
+        (identifier)))))
 
 =======================================
 Flow Export Types
